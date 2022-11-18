@@ -13,7 +13,7 @@
 ###### What are the major features of your web application? What problem
 ###### is it attempting to solve? What libraries or frameworks will you 
 ###### use?
-##
+
 #### Major feature of this web application will be the ability of the
 #### user to play the game Blackjack against the computer. Also, the 
 #### user will be able to keep a running score of their hands and 
@@ -25,7 +25,7 @@
 ###### Walk through the application from the user's perspective. What 
 ###### will they see on each page? What can they input and click and see? 
 ###### How will their actions correspond to events on the back-end?
-##
+
 #### The user will log into their profile, which will save their stats
 #### and overall points. The user will be able to wager their points
 #### on each hand, choose between a Hit, Stand, or Double Down. 
@@ -35,7 +35,7 @@
 ###### What data will you need to store as part of your application? 
 ###### In this section list out all the models you'll have and the fields 
 ###### on each of them.
-##
+
 #### Will have only one model within this application which will focus 
 #### on the player and the data stored will be for the user. 
 #### The data will be Score, Win/Loss stat, games played stat, highest
