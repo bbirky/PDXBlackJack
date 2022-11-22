@@ -32,7 +32,7 @@ sessions played. This will be accomplished by...
 
 - Creating a user database inside of Django
 
-- Creating a database of stats for:
+- Creating the user database of stats for:
 
    Total Hands Played - intField
 
