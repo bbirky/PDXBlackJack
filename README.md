@@ -48,17 +48,17 @@ sessions played. This will be accomplished by...
 
 - Creating a database of stats for:
 
-   How many hands has the user played?
+   Total Hands Played   intField
 
-   What is the users highest total score?
+   Highest Total Score  intField
 
-   What is the users lowest total score?
+   Lowest Total Score   intField
 
-   What is the average win/loss rate of the user?
+   Average Win Rate     intField
 
-   What is the users average bet size per hand?
+   Average Bet Size     intField
 
-   What is the users EV (Expected Value)?
+   User Expected Value  intField
 
 ## Schedule
 
