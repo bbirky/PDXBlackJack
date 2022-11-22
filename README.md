@@ -2,13 +2,10 @@
 
 This web application is a game of Blackjack played between a user 
 and the computer. The goal of the game is to get a score of 21 
-by adding all the values of your cards. If the player, or computer,
-get a 21 with their first two cards then they win, unless the other
-has a two card 21, which in that case would be a draw. If anyone 
-goes over 21 then they lose the hand. Any score below a 21 but higher
-than their opponent will be declared a winner. And lastly, if both
-scores are equivalent then the hand will be declared a "push" a.k.a
-a draw or tie.
+by adding all the values of your cards. Basic rules apply in this
+game. The backend data storage will be with the Django framework
+and SQLite. CSS, HTML, and Vue.js will be used for all front end
+aspects of this application. 
 
 ## Project Overview
 
@@ -21,21 +18,10 @@ application uses Django framework, Vue, HTML, CSS, and API calls.
 ## Functionality
 
 When the user starts this application they are first going to have
-to sign into their profile or sign up for a new one. Once in they 
-will be able to place a wager on their first hand. After that they 
-can then press the 'Deal' button which will begin the hand. The user
-will receive two cards face up and the deal will receive two cards, 
-one face up and the second face down. Next, a Player score and Dealer
-score will be displayed, seperately, on the screen. Now, if the user
-does not have a score of 21 on their first two cards they will have
-the option of pressing the 'Hit' button to receive another card, or 
-'Stand' to end their action and let the dealer start their turn. If
-the user receives a card and their score is above a 21 they will 
-automatically lose the hand. Once both the user and dealer have 
-finished acting their scores will be compared and the higher score, 
-at 21 or below, will be the winner. The deck will be reshuffled, 
-the scores reset and the user will be able to make another wager 
-and play the next hand. 
+to sign into their profile or sign up for a new one. Once in the 
+game they will be able to play hands of Blackjack using API calls 
+with Vue.js. Over time the user will be able to look at their profile
+for all the stats that are collected in the game. 
 
 
 ## Data Model
