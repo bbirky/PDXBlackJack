@@ -48,17 +48,17 @@ sessions played. This will be accomplished by...
 
 - Creating a database of stats for:
 
-   Total Hands Played   intField
+   Total Hands Played - intField
 
-   Highest Total Score  intField
+   Highest Total Score - intField
 
-   Lowest Total Score   intField
+   Lowest Total Score - intField
 
-   Average Win Rate     intField
+   Average Win Rate - intField
 
-   Average Bet Size     intField
+   Average Bet Size - intField
 
-   User Expected Value  intField
+   User Expected Value - intField
 
 ## Schedule
 
