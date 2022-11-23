@@ -4,20 +4,42 @@
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: whitesmoke;
-    background-color: #1f1f1f;
 }
 
-body{
+#app{
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    gap: 12rem;
+    border: 1px solid blue;
+}
+
+body {
+    background: url("table.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+img {
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+
+.dealer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
     gap: 1rem;
-    border: 1px solid red;
+    border: 3px solid white;
 }
 
-li{
+.player{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
-    border: 1px solid blue;
+    gap: 1rem;
+    border: 3px solid white;
 }

@@ -7,29 +7,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+        <link rel="icon" type="image/x-icon" href="static/club.ico">
         <link rel="stylesheet" href="static/styles.css">
         <title>Capstone - PDX Blackjack</title>
     </head>
     <body>
         <div id='app'>
-            <form action="{% url 'Blackjack:mycreate' %}" method="post">
-                {% csrf_token %}
-                <input type="text" name="myfield"/>
-                <button type="submit">submit</button>
-            </form>
-            <ul>
-                {% for myinstance in myinstances %}
-                <li>{{ myinstance.myfield }}</li>
-                {% endfor %}
-            </ul>
-
+            <div class='dealer'>
+                <h3>Dealer</h3>
+                <img :src="cardImage"></img>
+                <img :src="cardImage2"></img>
+            </div>
+            <div class='player'>
+                <h3>Player</h3>
+                <img :src="cardImage3"></img>
+                <img :src="cardImage4"></img>
+            </div>
         </div>
             <script src="{% static '/scripts.js' %}"></script>
-
             <script>
                 const mountApp = app.mount('#app')
             </script>
-
     </body>
 </html>
