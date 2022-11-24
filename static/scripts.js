@@ -34,6 +34,7 @@ const app = Vue.createApp({
                 method: 'get',
                 url: "https://www.deckofcardsapi.com/api/deck/new/draw/?count=4", 
             }).then((response) => {
+                console.log(response)
                 this.cardImage = response.data.cards[0].image
                 this.cardImage2 = response.data.cards[1].image
                 this.cardImage3 = response.data.cards[2].image
