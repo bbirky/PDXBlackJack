@@ -5,7 +5,8 @@ const app = Vue.createApp({
             cardImage: '',
             cardImage2: '',
             cardImage3: '',
-            cardImage4: ''
+            cardImage4: '',
+            deckId: ''
         }
     },
     methods:{
@@ -14,7 +15,8 @@ const app = Vue.createApp({
                 method: 'get',
                 url: "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6", 
             }).then((response) => {
-                console.log(response)
+                this.deckId = response.data.deck_id
+                console.log(this.deckId)
             }).catch((error) => {
                 console.log(error);
             });
@@ -22,9 +24,9 @@ const app = Vue.createApp({
         drawCard(){
             axios({
                 method: 'get',
-                url: "https://www.deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=2", 
+                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=2`, 
             }).then((response) => {
-                console.log(response)
+                console.log(response.data.deck_id)
             }).catch((error) => {
                 console.log(error);
             });
@@ -45,6 +47,7 @@ const app = Vue.createApp({
         }
     },
     mounted(){
+        this.createDeck(),
         this.getCardImage(),
         console.log('mounted')
     },
