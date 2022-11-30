@@ -12,17 +12,29 @@
         <title>Capstone - PDX Blackjack</title>
     </head>
     <body>
+        {% comment %} USE SQUARE BRACKETS INSIDE APP {% endcomment %}
         <div id='app'>
             <div class='dealer'>
                 <h3>Dealer</h3>
-                <img :src="cardImage"></img>
-                <img :src="cardImage2"></img>
+                <div v-for="card in dealerCards">
+                    <img :src=[[card]]>
+                </div>
             </div>
             <div class='player'>
-                <h3>Player</h3>
-                <button @click="drawCard()">Hit</button>
-                <img :src="cardImage3"></img>
-                <img :src="cardImage4"></img>
+                <div id='player-header'>
+                    <h3>Player</h3>
+                    <button id='deal'@click="deal()">Deal</button>
+                    <button id='hit'@click="hit()">Hit</button>
+                    <button id='playerDrawOneCard'@click="playerDrawOneCard()">playerDrawOneCard</button>
+                </div>
+                <div id="player-cards">
+                    <div v-for="card in playerCards">
+                        <img :src=[[card]]>
+                    </div>
+                    <div v-for="card in playerCards">
+                        <img :src=[[card]]>
+                    </div>
+                </div>
             </div>
         </div>
             <script src="{% static '/scripts.js' %}"></script>

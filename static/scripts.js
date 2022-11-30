@@ -2,11 +2,9 @@ const app = Vue.createApp({
     delimiters: ['[[', ']]'],
     data(){
         return{
-            cardImage: '',
-            cardImage2: '',
-            cardImage3: '',
-            cardImage4: '',
-            deckId: ''
+            dealerCards:[],
+            playerCards:[],
+            deckId: '',
         }
     },
     methods:{
@@ -21,10 +19,43 @@ const app = Vue.createApp({
                 console.log(error);
             });
         },
-        drawCard(){
+        playerDrawOneCard(){
             axios({
                 method: 'get',
-                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=2`, 
+                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`,
+            }).then((response) => {
+                this.playerCards[playerCards.length].push(response.data.cards[0].image)
+                console.log(playerCards)
+            }).catch((error) => {
+                console.log(error);
+            });
+        },
+        dealerDrawOneCard(){
+            axios({
+                method: 'get',
+                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`,
+            }).then((response) => {
+            }).catch((error) => {
+            });
+        },
+        deal(){
+            axios({
+                method: 'get',
+                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=4`,
+            }).then((response) => {
+                console.log(response.data.deck_id)
+                this.dealerCards[0] = response.data.cards[0].image
+                this.dealerCards[1] = response.data.cards[1].image
+                this.playerCards[0] = response.data.cards[2].image
+                this.playerCards[1] = response.data.cards[3].image
+            }).catch((error) => {
+                console.log(error);
+            });
+        },
+        hit(){
+            axios({
+                method: 'get',
+                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=2`,
             }).then((response) => {
                 console.log(response.data.deck_id)
             }).catch((error) => {
@@ -34,13 +65,9 @@ const app = Vue.createApp({
         getCardImage(){
             axios({
                 method: 'get',
-                url: "https://www.deckofcardsapi.com/api/deck/new/draw/?count=4", 
+                url: 'https://www.deckofcardsapi.com/api/deck/new/draw/?count=4', 
             }).then((response) => {
                 console.log(response)
-                this.cardImage = response.data.cards[0].image
-                this.cardImage2 = response.data.cards[1].image
-                this.cardImage3 = response.data.cards[2].image
-                this.cardImage4 = response.data.cards[3].image
             }).catch((error) => {
                 console.log(error);
             });
@@ -48,7 +75,6 @@ const app = Vue.createApp({
     },
     mounted(){
         this.createDeck(),
-        this.getCardImage(),
         console.log('mounted')
     },
 })

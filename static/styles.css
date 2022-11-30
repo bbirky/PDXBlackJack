@@ -14,6 +14,28 @@
     border: 1px solid blue;
 }
 
+#player-header{
+    border: 1px solid red;
+}
+
+#player-cards{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid whitesmoke;
+}
+
+#deal{
+    border-radius: 15%;
+    border: 1px solid black;
+    background-color: black;
+}
+
+#hit{
+    border-radius: 15%;
+    border: 1px solid black;
+    background-color: black;
+}
+
 body {
     background: url("table.png");
     background-size: cover;
@@ -37,9 +59,11 @@ img {
 
 .player{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     gap: 1rem;
     border: 3px solid white;
 }
+
