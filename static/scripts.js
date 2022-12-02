@@ -24,17 +24,26 @@ const app = Vue.createApp({
         deal(){
             axios({
                 method: 'get',
-                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=4`,
-            }).then((response) => {
-                console.log('Draw res',     response)
-                this.playerCards.push(response.data.cards[0])
-                this.playerCards.push(response.data.cards[1])
-                this.dealerCards.push(response.data.cards[2])
-                this.dealerCards.push(response.data.cards[3])
-                this.evaluateScore()
+                url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/shuffle/`,
+            }).then(() => {
+                axios({
+                    method: 'get',
+                    url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=4`,
+                }).then((response) => {
+                    this.playerCards = []
+                    this.dealerCards = []
+                    this.playerCards.push(response.data.cards[0])
+                    this.playerCards.push(response.data.cards[1])
+                    this.dealerCards.push(response.data.cards[2])
+                    this.dealerCards.push(response.data.cards[3])
+                    this.evaluatePlayerScore()
+                    this.evaluateDealerScore()
+                }).catch((error) => {
+                    console.log(error);
+                });
             }).catch((error) => {
                 console.log(error);
-            });
+            });      
         },
         hit(){
             axios({
@@ -42,12 +51,29 @@ const app = Vue.createApp({
                 url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`,
             }).then((response) => {
                 this.playerCards.push(response.data.cards[0])
-                this.evaluateScore()
+                this.evaluatePlayerScore()
+                
             }).catch((error) => {
                 console.log(error);
             });
         },
-        evaluateScore(){
+        stand(){
+            if (this.dealerScore < 17 ){
+                axios({
+                    method: 'get',
+                    url: `https://www.deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`,
+                }).then((response) => {
+                    this.dealerCards.push(response.data.cards[0])
+                    this.evaluateDealerScore()
+                    if (this.dealerScore < 17 ){
+                        this.stand()
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                });
+            }   
+        },
+        evaluatePlayerScore(){
             this.playerScore = 0
             for (let i = 0; i < this.playerCards.length; i++) {
                 if (this.playerCards[i].value == 'ACE') {
@@ -60,6 +86,22 @@ const app = Vue.createApp({
                     this.playerScore += 10;
                 } else {
                     this.playerScore += parseInt(this.playerCards[i].value);
+                }
+            }
+        },
+        evaluateDealerScore(){
+            this.dealerScore = 0
+            for (let i = 0; i < this.dealerCards.length; i++) {
+                if (this.dealerCards[i].value == 'ACE') {
+                    this.dealerScore += 11;
+                } else if (this.dealerCards[i].value == 'KING') {
+                    this.dealerScore += 10;
+                } else if (this.dealerCards[i].value == 'QUEEN') {
+                    this.dealerScore += 10;
+                } else if (this.dealerCards[i].value == 'JACK') {
+                    this.dealerScore += 10;
+                } else {
+                    this.dealerScore += parseInt(this.dealerCards[i].value);
                 }
             }
         },

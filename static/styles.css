@@ -9,39 +9,70 @@
 #app{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 1rem;
-    gap: 7rem;
-    border: 1px solid blue;
+    height: 100vh;
+    width: 100%;
 }
 
 #dealer-cards{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 1px solid whitesmoke;
+}
+
+#winner{
+    display: flex;
+    justify-content: center;
+}
+
+#center-display{
+    color: red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #player-header{
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    /* border: 1px solid red; */
+}
+
+#buttons{
+    display: flex;
+    gap: 0.5rem;
+    /* border: 1px solid blue; */
 }
 
 #player-cards{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 1px solid whitesmoke;
 }
 
 #deal{
+    width: 4rem;
+    height: 2rem;
     border-radius: 15%;
-    border: 1px solid black;
-    background-color: black;
+    border: 1px solid yellowgreen;
+    background-image: radial-gradient(circle, grey, black);
 }
 
 #hit{
+    width: 4rem;
+    height: 2rem;
     border-radius: 15%;
-    border: 1px solid black;
-    background-color: black;
+    border: 1px solid yellowgreen;
+    background-image: radial-gradient(circle, green, black);
+}
+
+#stand{
+    width: 4rem;
+    height: 2rem;
+    border-radius: 15%;
+    border: 1px solid yellowgreen;
+    background-image: radial-gradient(circle, red, black);
 }
 
 body {
@@ -63,7 +94,6 @@ img {
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-    border: 3px solid white;
 }
 
 .player{
@@ -73,5 +103,4 @@ img {
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-    border: 3px solid white;
 }

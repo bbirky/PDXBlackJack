@@ -15,18 +15,26 @@
         {% comment %} USE SQUARE BRACKETS INSIDE APP {% endcomment %}
         <div id='app'>
             <div class='dealer'>
-                <h3>Dealer Score:[[dealerScore]]</h3>
                 <div id="dealer-cards">
                     <div v-for="card in dealerCards">
                         <img :src=[[card.image]]>
                     </div>
                 </div>
+                <p>Dealer Score:[[dealerScore]]</p>
+            </div>
+            <div id="winner">
+                <p id="center-display">...</p>
             </div>
             <div class='player'>
                 <div id='player-header'>
-                    <h3>Player Score:[[playerScore]]</h3>
-                    <button id='deal'@click="deal()">Deal</button>
-                    <button id='hit'@click="hit()">Hit</button>
+                    <div id="score">
+                        <p>Player Score:[[playerScore]]</p>
+                    </div>
+                    <div id="buttons">
+                        <button id='deal'@click="deal()">Deal</button>
+                        <button id='hit'@click="hit()">Hit</button>
+                        <button id='stand'@click="stand()">Stand</button>
+                    </div>
                 </div>
                 <div id="player-cards">
                     <div v-for="card in playerCards">
