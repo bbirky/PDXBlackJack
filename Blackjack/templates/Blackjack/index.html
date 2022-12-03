@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,7 +24,7 @@
                 <p>Dealer Score:[[dealerScore]]</p>
             </div>
             <div id="winner">
-                <p id="center-display">...</p>
+                <p id="center-display">[[announceWinner]]</p>
             </div>
             <div class='player'>
                 <div id='player-header'>
@@ -31,9 +32,13 @@
                         <p>Player Score:[[playerScore]]</p>
                     </div>
                     <div id="buttons">
-                        <button id='deal'@click="deal()">Deal</button>
-                        <button id='hit'@click="hit()">Hit</button>
-                        <button id='stand'@click="stand()">Stand</button>
+                        <div v-if="handInSession === false">
+                            <button id='deal'@click="deal()">Deal</button>
+                        </div>
+                        <div v-if="handInSession === true">
+                            <button id='hit'@click="hit()">Hit</button>
+                            <button id='stand'@click="stand()">Stand</button>
+                        </div>
                     </div>
                 </div>
                 <div id="player-cards">
