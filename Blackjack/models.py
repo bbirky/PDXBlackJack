@@ -1,7 +1,14 @@
 from django.db import models
+from django.urls import reverse
 
-class StatModel(models.Model):
-    myfield = models.CharField(max_length=200)
-    
+class User(models.Model):
+    win = models.IntegerField()
+    win_streak = models.IntegerField()
+    author = models.ForeignKey('auth.User', related_name='posts', on_delete=models.CASCADE)
+
     def __str__(self):
-        return self.myfield
+        return f'{self.title} - {self.body}'
+
+
+    def get_absolute_url(self):
+        return reverse('posts:home', args=(self.pk,))

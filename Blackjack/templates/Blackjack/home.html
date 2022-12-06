@@ -1,18 +1,6 @@
-{% load static %}
+{% extends 'Blackjack/base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <link rel="icon" type="image/x-icon" href="static/club.ico">
-        <link rel="stylesheet" href="static/styles.css">
-        <title>Capstone - PDX Blackjack</title>
-    </head>
-    <body>
+{% block content %}
         {% comment %} USE SQUARE BRACKETS INSIDE APP {% endcomment %}
         <div id='app'>
             <div class='dealer'>
@@ -48,9 +36,7 @@
                 </div>
             </div>
         </div>
-            <script src="{% static '/scripts.js' %}"></script>
-            <script>
-                const mountApp = app.mount('#app')
-            </script>
-    </body>
-</html>
+        
+        
+
+{% endblock content %}
