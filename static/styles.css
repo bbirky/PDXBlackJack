@@ -81,6 +81,14 @@ body {
     background-repeat: no-repeat;
   }
 
+form {
+    /* background: url("table.png"); */
+    background: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+  }
+
 img {
     border-radius: 4px;
     padding: 5px;

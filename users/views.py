@@ -8,12 +8,12 @@ from django.views.generic import DetailView
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
-    template_name = 'signup.html'
+    template_name = 'Blackjack/signup.html'
     success_url = reverse_lazy('login')
 
 class ProfileView(LoginRequiredMixin, DetailView):
     model = User
-    template_name = 'profile.html'
+    template_name = 'Blackjack/profile.html'
     context_object_name = 'user_profile'
     
     def get_object(self):
