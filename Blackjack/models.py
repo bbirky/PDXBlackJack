@@ -11,4 +11,4 @@ class User(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('posts:home', args=(self.pk,))
+        return reverse('users:myhome', args=(self.pk,))

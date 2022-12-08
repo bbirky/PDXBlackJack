@@ -1,11 +1,35 @@
-{% extends 'Blackjack/base.html' %}
-{% block content %}
+{% load static %}
 
-    <h1>Sign Up HTML</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Sign Up">
-    </form>
+<!DOCTYPE html>
 
-{% endblock %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="{% static '/' %}">
+        <link rel="stylesheet" href="{% static '/styles.css' %}">
+        <title>Capstone - PDX Blackjack</title>
+    </head>
+    <body>
+        <div id="app">
+            <form action="" method="post">
+                <h1>Sign Up</h1>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+        <script src="{% static '/scripts.js' %}"></script>
+            
+        <script>
+            const mountApp = app.mount('#app')
+        </script>
+    </body>
+
+</html>
+
+
+

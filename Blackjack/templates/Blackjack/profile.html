@@ -1,18 +1,40 @@
-{% extends 'Blackjack/base.html' %}
-    {% block content %}
-        <h1>Profile HTML</h1>
-        <a href="{% url 'posts:home' %}">return Home</a>
-        <p>{{user_profile.username}}</p>
-        <p>{{user_profile.first_name}}</p>
-        <p>{{user_profile.last_name}}</p>
-        <br>
-        {% for post in user_profile.posts.all %}
-            {{post.title}}
-            <br>
-            {{post.body}}
-            <br>
-            {{post.date_created}}
-            <br><br>
-        {% endfor %}
+{% load static %}
 
-    {% endblock %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="{% static '/club.ico' %}">
+        <link rel="stylesheet" href="{% static '/styles.css' %}">
+        <title>Capstone - PDX Blackjack</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Profile</h1>
+            <a href="{% url 'Blackjack:myhome' %}">return Home</a>
+            <p>{{user_profile.username}}</p>
+            <p>{{user_profile.first_name}}</p>
+            <p>{{user_profile.last_name}}</p>
+            <br>
+            {% for user in user_profile.posts.all %}
+                {{user.win}}
+                <br>
+                {{user.win_streak}}
+                <br>
+                {{user.author}}
+                <br><br>
+            {% endfor %}
+        </div>
+        <script src="{% static '/scripts.js' %}"></script>
+            
+        <script>
+            const mountApp = app.mount('#app')
+        </script>
+    </body>
+
+</html>

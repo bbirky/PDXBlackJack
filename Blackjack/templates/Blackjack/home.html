@@ -1,42 +1,70 @@
-{% extends 'Blackjack/base.html' %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="{% static '/club.ico' %}">
+        <link rel="stylesheet" href="{% static '/styles.css' %}">
+        <title>Capstone - PDX Blackjack</title>
+    </head>
+    <body>
         {% comment %} USE SQUARE BRACKETS INSIDE APP {% endcomment %}
-        <div id='app'>
-            <div class='dealer'>
-                <div id="dealer-cards">
-                    <div v-for="card in dealerCards">
-                        <img :src=[[card.image]]>
-                    </div>
+        <div id='game'>
+            <div id='app'>
+                <div id='auth-div'>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Login</a>
+                    {% endif %}
                 </div>
-                <p>Dealer Score:[[dealerScore]]</p>
-            </div>
-            <div id="winner">
-                <p id="center-display">[[announceWinner]]</p>
-            </div>
-            <div class='player'>
-                <div id='player-header'>
-                    <div id="score">
-                        <p>Player Score:[[playerScore]]</p>
-                    </div>
-                    <div id="buttons">
-                        <div v-if="handInSession === false">
-                            <button id='deal'@click="deal()">Deal</button>
-                        </div>
-                        <div v-if="handInSession === true">
-                            <button id='hit'@click="hit()">Hit</button>
-                            <button id='stand'@click="stand()">Stand</button>
+
+
+                <div class='dealer'>
+                    <div id="dealer-cards">
+                        <div v-for="card in dealerCards">
+                            <img :src=[[card.image]]>
                         </div>
                     </div>
+                    <p>Dealer Score:[[dealerScore]]</p>
                 </div>
-                <div id="player-cards">
-                    <div v-for="card in playerCards">
-                        <img :src=[[card.image]]>
+                <div id="winner">
+                    <p id="center-display">[[announceWinner]]</p>
+                </div>
+                <div class='player'>
+                    <div id='player-header'>
+                        <div id="score">
+                            <p>Player Score:[[playerScore]]</p>
+                        </div>
+                        <div id="buttons">
+                            <div v-if="handInSession === false">
+                                <button id='deal'@click="deal()">Deal</button>
+                            </div>
+                            <div v-if="handInSession === true">
+                                <button id='hit'@click="hit()">Hit</button>
+                                <button id='stand'@click="stand()">Stand</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="player-cards">
+                        <div v-for="card in playerCards">
+                            <img :src=[[card.image]]>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        
+        <script src="{% static '/scripts.js' %}"></script>
+            
+        <script>
+            const mountApp = app.mount('#app')
+        </script>
+    </body>
 
-{% endblock content %}
+</html>

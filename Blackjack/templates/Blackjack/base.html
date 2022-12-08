@@ -9,16 +9,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        {% comment %} <link rel="icon" type="image/x-icon" href="static/club.ico"> {% endcomment %}
-        {% comment %} <link rel="stylesheet" href="static/styles.css"> {% endcomment %}
-        <link rel="icon" type="image/x-icon" href="{% static '/club.ico' %}">
+        <link rel="icon" type="image/x-icon" href="{% static '/' %}">
         <link rel="stylesheet" href="{% static '/styles.css' %}">
         <title>Capstone - PDX Blackjack</title>
     </head>
     <body>
         <div id="app">
-            {% block content %}
-            {% endblock %}
+            
         </div>
         <script src="{% static '/scripts.js' %}"></script>
             

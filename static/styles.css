@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: whitesmoke;
+ 
 }
 
 #app{
@@ -76,18 +76,23 @@
 }
 
 body {
+    background: #1f1f1f;
+    /* color: whitesmoke; */
+  }
+
+#game {
     background: url("table.png");
     background-size: cover;
     background-repeat: no-repeat;
-  }
+}
 
-form {
-    /* background: url("table.png"); */
+/* form {
+    background: url("table.png");
     background: black;
     background-size: cover;
     background-repeat: no-repeat;
     color: black;
-  }
+  } */
 
 img {
     border-radius: 4px;
@@ -111,4 +116,15 @@ img {
     align-items: center;
     padding: 1rem;
     gap: 1rem;
+}
+
+#auth-div{
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+}
+
+#auth-div a{
+    color: white;
+
 }
