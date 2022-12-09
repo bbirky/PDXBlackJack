@@ -12,6 +12,9 @@ const app = Vue.createApp({
             playerLossCount: 0,
             playerPushCount: 0,
             announceWinner: "",
+
+            totalWins: 0,
+            totalLosses: 0,
         }
     },
     methods:{
@@ -126,21 +129,34 @@ const app = Vue.createApp({
             if (this.playerScore > this.dealerScore && this.playerScore <= 21){
                 this.playerWinCount += 1;
                 this.announceWinner = "You Win!";
+                this.totalWins +=1
+                this.updateHiddenForm()
             } else if (this.playerScore < this.dealerScore && this.dealerScore <= 21){
                 this.playerLossCount += 1;
                 this.announceWinner = "You Lose...";
+                this.totalLosses +=1
+                this.updateHiddenForm()
             } else if (this.playerScore > 21 && this.dealerScore <= 21){
                 this.playerLossCount += 1;
                 this.announceWinner = "You Lose...";
+                this.totalLosses +=1
+                this.updateHiddenForm()
             } else if (this.playerScore <= 21 && this.dealerScore > 21){
                 this.playerWinCount += 1;
                 this.announceWinner = "You Win!";
+                this.totalWins +=1
+                this.updateHiddenForm()
             } else if (this.playerScore == this.dealerScore && this.playerScore <= 21){
                 this.playerPushCount += 1;
                 this.announceWinner = "PUSH ...Not Great, Not Terrible...";
             } else {
                 this.announceWinner = "";
             }
+        },
+
+        updateHiddenForm(){
+            document.querySelector('#total-wins').value = this.totalWins
+            document.querySelector('#total-losses').value = this.totalLosses
         }
     },
     mounted(){

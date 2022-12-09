@@ -128,3 +128,7 @@ img {
     color: white;
 
 }
+
+#hidden-form{
+    display: none;
+}
