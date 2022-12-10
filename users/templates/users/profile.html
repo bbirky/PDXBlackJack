@@ -17,16 +17,16 @@
         <div id="app">
             <h1>Profile</h1>
             <a href="{% url 'Blackjack:myhome' %}">return Home</a>
-            <p>{{user_profile.username}}</p>
+            {% comment %} <p>{{user_profile.username}}</p>
             <p>{{user_profile.first_name}}</p>
-            <p>{{user_profile.last_name}}</p>
+            <p>{{user_profile.last_name}}</p> {% endcomment %}
             <br>
-            {% for user in user_profile.posts.all %}
-                {{user.win}}
+            {% for session in sessions %}
+                {{session.win}}
                 <br>
-                {{user.win_streak}}
+                {{session.losses}}
                 <br>
-                {{user.author}}
+                {{session.player}}
                 <br><br>
             {% endfor %}
         </div>

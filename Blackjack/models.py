@@ -7,6 +7,7 @@ class Session(models.Model):
     win_streak = models.IntegerField(null=True)
     player = models.ForeignKey('auth.User', related_name='posts', on_delete=models.CASCADE)
 
+
     def __str__(self):
         return f'{self.player} '
 

@@ -6,9 +6,15 @@ def myhome(request):
     return render(request, 'Blackjack/home.html')
 
 def postResults(request, id):
-    print('!!!!!!!!!!!!', request.POST)
-    print('!!!!!!!!!!!!', request.user.id)
-    print('!!!!!!!!!!!!', request)
+    # print('!!!!!!!!!!!!', request.POST)
+    # print('!!!!!!!!!!!!', request.user.id)
+    # print('!!!!!!!!!!!!', request)
+
+    sessions = Session.objects.filter(player=request.user)
+
+    print("!!!!!!!!!!!!!!!!!!", sessions)
+
+
 
     # ----------------STUDY TRY-EXCEPT ---------------
     # try:
@@ -20,4 +26,4 @@ def postResults(request, id):
     losses = request.POST['losses']
     session = Session(win=win, losses=losses, player=request.user)
     session.save()
-    return render(request, 'Blackjack/home.html')
+    return render(request, 'Blackjack/home.html', {"sessions":sessions})
