@@ -14,16 +14,23 @@ class SignUpView(CreateView):
     template_name = 'Blackjack/signup.html'
     success_url = reverse_lazy('login')
 
-def userProfile(request, id):
-    user = User.objects.get(id=id)
+def userProfile(request, username):
+    user = User.objects.get(username=username)
     sessions = Session.objects.filter(player=request.user)
+    print("!!!!!!!!!!!", sessions[0].win)
+    # for item in sessions:
+    #     print("@@@@@@", item.win)
+
     context = {
         "user":user,
         "sessions":sessions,
+        "totalWins": 5,
     }
+    
+
     return render(request, 'users/profile.html', context)
 
-# class ProfileView(LoginRequiredMixin, DetailView):
+# class ProfileView(DetailView):
 #     model = User
 #     template_name = 'users/profile.html'
 #     context_object_name = 'user_profile'

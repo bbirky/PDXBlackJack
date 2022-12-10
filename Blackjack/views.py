@@ -8,20 +8,17 @@ def myhome(request):
 def postResults(request, id):
     # print('!!!!!!!!!!!!', request.POST)
     # print('!!!!!!!!!!!!', request.user.id)
-    # print('!!!!!!!!!!!!', request)
-
+    # print('!!!!!!!!!!!!', request.user)
     sessions = Session.objects.filter(player=request.user)
-
-    print("!!!!!!!!!!!!!!!!!!", sessions)
-
-
+    # print("!!!!!!!!!!!!!!!!!!", sessions)
 
     # ----------------STUDY TRY-EXCEPT ---------------
     # try:
     #     obj = get_object_or_404(Session, id=id)
     # except:
 
-    print(Session.player)
+    # print(Session.player)
+
     win = request.POST['win']
     losses = request.POST['losses']
     session = Session(win=win, losses=losses, player=request.user)
