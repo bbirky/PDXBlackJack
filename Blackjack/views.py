@@ -7,19 +7,17 @@ def myhome(request):
 
 def postResults(request, id):
     print('!!!!!!!!!!!!', request.POST)
-    print('!!!!!!!!!!!!', request.user)
+    print('!!!!!!!!!!!!', request.user.id)
+    print('!!!!!!!!!!!!', request)
+
+    # ----------------STUDY TRY-EXCEPT ---------------
     # try:
     #     obj = get_object_or_404(Session, id=id)
     # except:
 
-    print('!!!!!!!!!!!!!!!!!!!!!!')
+    print(Session.player)
     win = request.POST['win']
     losses = request.POST['losses']
-        
-    
-
     session = Session(win=win, losses=losses, player=request.user)
     session.save()
- 
-
     return render(request, 'Blackjack/home.html')
