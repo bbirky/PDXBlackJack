@@ -15,16 +15,22 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
 
 def userProfile(request, username):
+    totalWins = 0
+    totalLosses = 0
     user = User.objects.get(username=username)
     sessions = Session.objects.filter(player=request.user)
     print("!!!!!!!!!!!", sessions[0].win)
-    # for item in sessions:
-    #     print("@@@@@@", item.win)
+    for item in sessions:
+        totalWins += item.win
+        totalLosses += item.losses
+        print("@@@@@@", item.win, item.losses)
+        print("@@@@@@", totalWins, totalLosses)
 
     context = {
         "user":user,
         "sessions":sessions,
-        "totalWins": 5,
+        "totalWins": totalWins,
+        "totalLosses": totalLosses,
     }
     
 

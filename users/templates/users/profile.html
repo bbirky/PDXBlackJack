@@ -16,20 +16,15 @@
     <body>
         <div id="profile">
             <h1>Profile</h1>
+            <br>
             {% if user.is_authenticated %}
                 <a href="{% url 'Blackjack:myhome' %}">Home</a>
+                <br><br>
+                <p> Total Wins: {{totalWins}} Total Losses: {{totalLosses}}</p>
                 <br>
-
-                {{totalWins}}
-                {% comment %} {% for session in user_profile.posts.all %} {% endcomment %}
                 {% for session in sessions %}
-
-                <p>hi</p>
-                    {{session.win}}
-                    <br>
-                    {{session.losses}}
-                    <br>
-                    {{session.player}}
+                    <p> Wins:{{session.win}} Losses: {{session.losses}}</p>
+                    <p> Player: {{session.player}} </p>
                     <br><br>
                 {% endfor %}
             {% else %}
