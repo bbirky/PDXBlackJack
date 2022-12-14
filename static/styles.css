@@ -122,6 +122,12 @@ img {
     left: 1.5rem;
 }
 
+#save-and-quit{
+    position: absolute;
+    top: 6.5rem;
+    left: 1.5rem;
+}
+
 #auth-div a{
     color: white;
 
@@ -133,4 +139,8 @@ img {
 
 #profile {
     margin: 1rem;
+}
+
+#user{
+    color: whitesmoke;
 }

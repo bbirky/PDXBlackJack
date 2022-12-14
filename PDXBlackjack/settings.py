@@ -129,3 +129,6 @@ LOGIN_REDIRECT_URL = 'Blackjack:myhome'
 LOGOUT_REDIRECT_URL = 'Blackjack:myhome'
 
 LOGIN_URL = 'Blackjack/login'
+
+import django_on_heroku
+django_on_heroku.settings(locals())

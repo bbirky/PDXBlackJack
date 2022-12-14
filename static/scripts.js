@@ -96,7 +96,13 @@ const app = Vue.createApp({
             this.playerScore = 0
             for (let i = 0; i < this.playerCards.length; i++) {
                 if (this.playerCards[i].value == 'ACE') {
-                    this.playerScore += 11;
+                    // ----------- FIX -----------------------------------
+                    if (this.playerScore + 11 > 21 || this.playerScore > 21) {
+                        this.playerScore += 1;
+                    } else {
+                        this.playerScore += 11;
+                    };
+                    // -----------^^^ FIX ^^^-----------------------------------
                 } else if (this.playerCards[i].value == 'KING') {
                     this.playerScore += 10;
                 } else if (this.playerCards[i].value == 'QUEEN') {
@@ -112,7 +118,13 @@ const app = Vue.createApp({
             this.dealerScore = 0
             for (let i = 0; i < this.dealerCards.length; i++) {
                 if (this.dealerCards[i].value == 'ACE') {
-                    this.dealerScore += 11;
+                    // ----------- FIX -----------------------------------
+                    if (this.dealerScore + 11 > 21 || this.playerScore > 21) {
+                        this.dealerScore += 1;
+                    } else {
+                        this.dealerScore += 11;
+                    };
+                    // -----------^^^ FIX ^^^-----------------------------------
                 } else if (this.dealerCards[i].value == 'KING') {
                     this.dealerScore += 10;
                 } else if (this.dealerCards[i].value == 'QUEEN') {
@@ -153,7 +165,6 @@ const app = Vue.createApp({
                 this.announceWinner = "";
             }
         },
-
         updateHiddenForm(){
             document.querySelector('#total-wins').value = this.totalWins
             document.querySelector('#total-losses').value = this.totalLosses
